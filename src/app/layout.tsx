@@ -5,10 +5,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        {/* Plausible Analytics with outbound links + 404 tracking */}
         <Script
           defer
           data-domain="wetpets.app"
-          src="https://plausible.io/js/script.js"
+          data-api="/api/event"
+          src="https://plausible.io/js/script.outbound-links.404.js"
         />
       </head>
       <body>
