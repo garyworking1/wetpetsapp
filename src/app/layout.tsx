@@ -1,7 +1,7 @@
-
+import type { ReactNode } from 'react';
 import Script from 'next/script';
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
