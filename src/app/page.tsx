@@ -5,16 +5,7 @@ export default function Home() {
       <p style={{ marginBottom: '1rem' }}>
         The place to find the best swimming spots for your furry friends!
       </p>
-      <p>
-        <a
-          href="https://plausible.io"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: 'blue', textDecoration: 'underline' }}
-        >
-          Test outbound link
-        </a>
-      </p>
     </main>
   );
 }
+
