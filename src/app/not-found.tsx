@@ -1,17 +1,15 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main style={{ padding: '4rem 1rem', maxWidth: 800, margin: '0 auto' }}>
-      <h1 style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>404 — This page can’t be found</h1>
-      <p style={{ marginBottom: '1rem' }}>
+    <main className="mx-auto max-w-3xl px-4 py-16">
+      <h1 className="text-3xl font-bold">404 — This page can’t be found</h1>
+      <p className="mt-2 text-neutral-700">
         Looks like the water’s dried up here. 🐶🌊
       </p>
-      <p>
-        <Link href="/" style={{ textDecoration: 'underline' }}>
-          Go back to the homepage
-        </Link>
-      </p>
+      <Link href="/" className="mt-6 inline-block text-blue-700 underline-offset-4 hover:underline">
+        Go back to the homepage
+      </Link>
     </main>
   );
 }

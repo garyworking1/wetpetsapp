@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { spots } from "./spots/data";
 
 export const metadata = {
   title: "WetPets — Dog-Friendly Swimming Spots in Austin",
@@ -7,111 +8,11 @@ export const metadata = {
     "Find creeks, lakes, splash pads, and safe access points for dogs in Austin. Built by dog people. Splash tested in ATX.",
 };
 
-const spots = [
-  {
-    slug: "brushy-creek",
-    name: "Brushy Creek",
-    city: "Hutto, TX",
-    image: "/photos/brushycreek-gracy-misty.jpg",
-    alt: "Gracy and Misty scouting on a limestone ledge at Brushy Creek",
-    caption:
-      "Gracy + Misty scouting safe, shallow water at Brushy Creek (Hutto).",
-    mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=Brushy+Creek+Hutto+TX",
-  },
-  {
-    slug: "chisholm-trail",
-    name: "Chisholm Trail",
-    city: "Round Rock, TX",
-    image: "/photos/chisholmtrail-gracy-misty.jpg",
-    alt: "Gracy and Misty on limestone ledges with gentle flow",
-    caption:
-      "Classic limestone ledges and gentle flow—great for cautious swimmers.",
-    mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=Chisholm+Trail+Crossing+Round+Rock+TX",
-  },
-  {
-    slug: "lady-bird-lake",
-    name: "Lady Bird Lake",
-    city: "Austin, TX",
-    image: "/photos/ladybird-murphy-misty.jpg",
-    alt: "Murphy and Misty in a kayak on Lady Bird Lake",
-    caption:
-      "Kayak days with Misty—watch wakes and heat, bring a dog life jacket.",
-    mapUrl: "https://www.google.com/maps/place/Lady+Bird+Lake,+Austin,+TX",
-  },
-  {
-    slug: "buddy-mascot",
-    name: "Buddy (mascot)",
-    city: "Austin, TX",
-    image: "/photos/buddy-mascot.jpg",
-    alt: "Buddy standing on roots by the water",
-    caption: "Buddy loves making a splash anywhere in Austin.",
-    mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=Austin+TX+dog+friendly+water",
-  },
-  {
-    slug: "bull-creek",
-    name: "Bull Creek",
-    city: "Austin, TX",
-    image: "/photos/ai-bullcreek.png",
-    alt: "Two dogs splashing near a limestone cascade at a creek",
-    caption:
-      "Clear water, limestone shelves, and little cascades—watch for spring flow.",
-    mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=Bull+Creek+Austin+TX",
-  },
-  {
-    slug: "walnut-creek",
-    name: "Walnut Creek Metro Park",
-    city: "Austin, TX",
-    image: "/photos/ai-walnutcreek.png",
-    alt: "Australian Cattle Dog mid-splash in a shaded creek",
-    caption:
-      "Shaded crossings and off-leash trails. After storms water can run fast.",
-    mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=Walnut+Creek+Metro+Park+Austin+TX",
-  },
-];
-
 export default function Home() {
-  const addSpotUrl = "#"; // replace with your Google Form link when ready
+  const addSpotUrl = "#"; // drop your Google Form link when ready
 
   return (
-    <main className="min-h-screen bg-white text-neutral-900">
-      {/* Sticky header */}
-      <header className="sticky top-0 z-40 border-b border-neutral-200/70 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/logo.jpg"
-              alt="WetPets logo"
-              width={28}
-              height={28}
-              className="rounded-md"
-              priority
-            />
-            <span className="font-semibold">WetPets</span>
-          </Link>
-
-          <nav className="hidden gap-6 text-sm md:flex">
-            <a href="#spots" className="underline-offset-4 hover:underline">
-              Spots
-            </a>
-            <a href="#how" className="underline-offset-4 hover:underline">
-              How it works
-            </a>
-          </nav>
-
-          <a
-            href={addSpotUrl}
-            className="rounded-full bg-black px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800"
-          >
-            + Add a Spot
-          </a>
-        </div>
-      </header>
-
+    <main className="min-h-screen">
       {/* Hero */}
       <section className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 pb-4 pt-8 md:grid-cols-2">
         <div>
@@ -151,7 +52,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Spots grid */}
+      {/* Spots */}
       <section id="spots" className="mx-auto max-w-6xl px-4 pb-16">
         <h2 className="mb-4 text-xl font-semibold">Featured Austin spots</h2>
 
@@ -185,12 +86,12 @@ export default function Home() {
                   >
                     Directions
                   </a>
-                  <a
-                    href={'/spots/' + s.slug}
+                  <Link
+                    href={`/spots/${s.slug}`}
                     className="text-blue-700 underline-offset-4 hover:underline"
                   >
                     Learn more
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>
