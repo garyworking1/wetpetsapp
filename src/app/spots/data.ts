@@ -62,7 +62,7 @@ export const spots: Spot[] = [
     slug: "bull-creek",
     name: "Bull Creek",
     city: "Austin, TX",
-    image: "/photos/ai-bullcreek.png",
+    image: "/photos/cc/bullcreek-commons.jpg",
     alt: "Two dogs splashing near a limestone cascade at a creek",
     caption:
       "Clear water, limestone shelves, and little cascades—watch for spring flow.",
@@ -74,7 +74,7 @@ export const spots: Spot[] = [
     slug: "walnut-creek",
     name: "Walnut Creek Metro Park",
     city: "Austin, TX",
-    image: "/photos/ai-walnutcreek.png",
+    image: "/photos/cc/walnutcreek-commons.jpg",
     alt: "Australian Cattle Dog mid-splash in a shaded creek",
     caption:
       "Shaded crossings and off-leash trails. After storms water can run fast.",
