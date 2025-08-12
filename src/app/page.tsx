@@ -86,7 +86,7 @@ export default function Home() {
                   boxShadow: "0 0 0 1px rgba(0,0,0,0.06) inset",
                 }}
               >
-                <Image src="/logo.png" alt="WetPets logo" width={28} height={28} priority />
+                <Image src="/logo.jpg" alt="WetPets logo" width={28} height={28} priority />
               </span>
               <strong style={{ fontSize: 18, color: "#111" }}>WetPets</strong>
             </Link>
