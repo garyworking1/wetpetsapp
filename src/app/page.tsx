@@ -1,18 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { spots } from "./spots/data";
-
-export const metadata = {
-  title: "WetPets — Dog-Friendly Swimming Spots in Austin",
-  description:
-    "Find creeks, lakes, splash pads, and safe access points for dogs in Austin. Built by dog people. Splash tested in ATX.",
-};
-
 export default function Home() {
   const addSpotUrl = "#"; // drop your Google Form link when ready
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white text-neutral-900">
       {/* Hero */}
       <section className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 pb-4 pt-8 md:grid-cols-2">
         <div>
