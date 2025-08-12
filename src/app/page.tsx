@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export const metadata = {
   title: 'WetPets — Dog-Friendly Swimming Spots in Austin',
   description:
@@ -9,7 +11,7 @@ export default function Home() {
     <main className="min-h-screen bg-white text-neutral-900">
       {/* Header */}
       <header className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
-        <a href="/" className="font-semibold text-xl">WetPets</a>
+        <Link href="/" className="font-semibold text-xl">WetPets</Link>
         <nav className="text-sm space-x-6">
           <a href="#how" className="underline-offset-4 hover:underline">How it works</a>
           <a href="#spots" className="underline-offset-4 hover:underline">Spots</a>
