@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default function Home() {
-  const addSpotUrl = "https://forms.gle/PASTE_YOUR_FORM_LINK_HERE"; // drop your Google Form link when ready
+  const addSpotUrl = "https://forms.gle/YOUR_SHORT_LINK_HERE"; // drop your Google Form link when ready
 
   return (
     <main className="min-h-screen bg-white text-neutral-900">
@@ -32,7 +32,7 @@ export default function Home() {
               Browse local spots
             </a>
             <a
-              href={addSpotUrl}
+              href={addSpotUrl} target="_blank" rel="noopener noreferrer" 
               className="rounded-2xl bg-black px-5 py-3 font-medium text-white hover:bg-neutral-800"
             >
               + Add a Spot

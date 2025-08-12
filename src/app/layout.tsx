@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const addSpotUrl = "https://forms.gle/PASTE_YOUR_FORM_LINK_HERE"; // replace with your Google Form when ready
+  const addSpotUrl = "https://forms.gle/YOUR_SHORT_LINK_HERE"; // replace with your Google Form when ready
 
   return (
     <html lang="en">
@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
             {/* External (or hash) link is fine to keep as <a> */}
             <a
-              href={addSpotUrl}
+              href={addSpotUrl} target="_blank" rel="noopener noreferrer" 
               className="rounded-full bg-black px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800"
             >
               + Add a Spot
