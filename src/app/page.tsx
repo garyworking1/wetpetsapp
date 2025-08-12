@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-// 🔗 Replace this with your real Google Form URL
+// TODO: replace with your real Google Form link
 const ADD_SPOT_FORM = 'https://forms.gle/your-form-id';
 
 export const metadata = {
@@ -34,18 +34,14 @@ function Card({
           fill
           sizes={wide ? '100vw' : '(max-width: 640px) 100vw, 50vw'}
           className="object-cover"
+          priority={wide}
         />
       </div>
       <div className="p-4">
         <h3 className="font-semibold">{title}</h3>
         <p className="text-sm text-neutral-700 mt-1">{subtitle}</p>
         <div className="mt-3">
-          <a
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-700 underline underline-offset-4"
-          >
+          <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-700 underline underline-offset-4">
             Directions
           </a>
         </div>
@@ -57,20 +53,12 @@ function Card({
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-neutral-900">
-      {/* Sticky Header with crisp logo + form button */}
+      {/* Sticky Header with crisp logo + Add a Spot */}
       <header className="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/75 backdrop-blur supports-[backdrop-filter]:bg-white/55">
         <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-semibold text-xl">
-            {/* Crisp logo treatment: white chip, subtle ring, drop shadow */}
             <span className="inline-flex items-center justify-center size-8 rounded-md bg-white ring-1 ring-black/5 shadow-sm overflow-hidden">
-              <Image
-                src="/photos/IMG_0396.jpg"
-                alt="WetPets logo"
-                width={28}
-                height={28}
-                className="object-cover"
-                priority
-              />
+              <Image src="/photos/IMG_0396.jpg" alt="WetPets logo" width={28} height={28} className="object-cover" priority />
             </span>
             <span className="tracking-tight">WetPets</span>
           </Link>
@@ -79,26 +67,12 @@ export default function Home() {
             <Link href="#how" className="underline-offset-4 hover:underline">How it works</Link>
             <Link href="#spots" className="underline-offset-4 hover:underline">Spots</Link>
             <Link href="/connections" className="underline-offset-4 hover:underline">Connections</Link>
-            {/* Add a Spot → Google Form */}
-            <a
-              href={ADD_SPOT_FORM}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full px-3.5 py-1.5 text-sm font-medium bg-black text-white hover:opacity-90"
-              title="Suggest a new swim spot"
-            >
+            <a href={ADD_SPOT_FORM} target="_blank" rel="noopener noreferrer" className="rounded-full px-3.5 py-1.5 text-sm font-medium bg-black text-white hover:opacity-90">
               + Add a Spot
             </a>
           </nav>
 
-          {/* Mobile: just show the Add button for now */}
-          <a
-            href={ADD_SPOT_FORM}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sm:hidden rounded-full px-3 py-1.5 text-sm font-medium bg-black text-white hover:opacity-90"
-            title="Suggest a new swim spot"
-          >
+          <a href={ADD_SPOT_FORM} target="_blank" rel="noopener noreferrer" className="sm:hidden rounded-full px-3 py-1.5 text-sm font-medium bg-black text-white hover:opacity-90">
             + Add
           </a>
         </div>
@@ -106,26 +80,15 @@ export default function Home() {
 
       {/* Hero */}
       <section className="mx-auto max-w-6xl px-4 pt-10 pb-8">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-          Austin’s Dog‑Friendly Swimming Spot Locator 🐶🌊
-        </h1>
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Austin’s Dog‑Friendly Swimming Spot Locator 🐶🌊</h1>
         <p className="mt-3 max-w-2xl text-lg text-neutral-700">
-          Find safe, fun places for pups to splash — shallow creeks, lake coves, launch spots, shade, parking, rules,
-          and live‑ish safety cues coming soon.
+          Find safe, fun places for pups to splash — shallow creeks, lake coves, launch spots, shade, parking, rules, and safety cues (coming soon).
         </p>
         <div className="mt-6 flex gap-3 flex-wrap">
-          <a
-            id="app"
-            href="#"
-            className="rounded-2xl px-5 py-3 bg-black text-white font-medium shadow-sm hover:opacity-90"
-            aria-disabled="true"
-            title="Coming soon"
-          >
+          <a id="app" href="#" className="rounded-2xl px-5 py-3 bg-black text-white font-medium shadow-sm hover:opacity-90" aria-disabled="true" title="Coming soon">
             Download (coming soon)
           </a>
-          <Link href="#spots" className="rounded-2xl px-5 py-3 border border-neutral-300 hover:bg-neutral-50">
-            Browse local spots
-          </Link>
+          <Link href="#spots" className="rounded-2xl px-5 py-3 border border-neutral-300 hover:bg-neutral-50">Browse local spots</Link>
         </div>
       </section>
 
@@ -196,13 +159,7 @@ export default function Home() {
           {/* Buddy mascot */}
           <article className="rounded-2xl border border-neutral-200 overflow-hidden">
             <div className="relative w-full h-60">
-              <Image
-                src="/photos/IMG_8032.jpg"
-                alt="Buddy the dog"
-                fill
-                sizes="(max-width: 640px) 100vw, 50vw"
-                className="object-cover"
-              />
+              <Image src="/photos/IMG_8032.jpg" alt="Buddy the dog" fill sizes="(max-width: 640px) 100vw, 50vw" className="object-cover" />
             </div>
             <div className="p-4">
               <h3 className="font-semibold">Meet Buddy</h3>
@@ -211,9 +168,7 @@ export default function Home() {
           </article>
         </div>
 
-        <p className="text-sm text-neutral-600 mt-4">
-          Photos are representative. Always check posted signs and current conditions.
-        </p>
+        <p className="text-sm text-neutral-600 mt-4">Photos are representative. Always check posted signs and current conditions.</p>
       </section>
 
       {/* Footer */}
@@ -222,54 +177,6 @@ export default function Home() {
           © {new Date().getFullYear()} WetPets. All splash rights reserved.
         </div>
       </footer>
-    </main>
-  );
-}
-
-Save & exit nano: CTRL+O, Enter, CTRL+X.
-2) Add the “Connections” page (stub now, upgradable to Premium later)
-
-Terminal
-
-mkdir -p src/app/connections
-nano src/app/connections/page.tsx
-
-Paste:
-
-export const metadata = {
-  title: 'WetPets Connections — Meet other dog people',
-  description: 'Group meetups, playdates, and paddles. Start here — dating comes later as a premium add-on.',
-};
-
-export default function ConnectionsPage() {
-  return (
-    <main className="mx-auto max-w-3xl px-4 py-10">
-      <h1 className="text-3xl font-bold tracking-tight">WetPets Connections</h1>
-      <p className="mt-3 text-neutral-700">
-        Start with community: group swims, breed meetups, and paddle meetups. Opt in with first name and dog’s name.
-        We’ll expand to a premium “Connections+” dating option once the community features are humming.
-      </p>
-
-      <div className="mt-6 space-y-4">
-        <a
-          href="https://forms.gle/your-connections-interest-form" // replace with your form
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block rounded-xl px-4 py-3 bg-black text-white font-medium hover:opacity-90"
-        >
-          Join the Connections waitlist
-        </a>
-
-        <div className="rounded-2xl border border-neutral-200 p-4">
-          <h2 className="font-semibold">What’s next</h2>
-          <ul className="mt-2 list-disc pl-5 text-sm text-neutral-700">
-            <li>Public meetups calendar</li>
-            <li>Opt‑in mini profiles (you + your dog)</li>
-            <li>Group chats via links (IG/Threads) before in‑app chat</li>
-            <li>Safety/report tools baked in</li>
-          </ul>
-        </div>
-      </div>
     </main>
   );
 }
