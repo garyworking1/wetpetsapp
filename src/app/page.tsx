@@ -1,12 +1,6 @@
-cd ~/WetPetsWeb/wetpets
-
-# backup just in case
-cp src/app/page.tsx src/app/page.backup.$(date +%H%M%S).tsx
-
-# replace the file
-cat > src/app/page.tsx <<'TSX'
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties } from "react";
 
 export const metadata = {
   title: "WetPets — Dog-Friendly Swimming Spots in Austin",
@@ -46,8 +40,7 @@ const spots = [
     alt: "Murphy and Misty in a kayak on Lady Bird Lake, Austin, Texas",
     caption:
       "Kayak days with Misty—watch wakes and heat, bring a dog life jacket.",
-    mapUrl:
-      "https://www.google.com/maps/place/Lady+Bird+Lake,+Austin,+TX",
+    mapUrl: "https://www.google.com/maps/place/Lady+Bird+Lake,+Austin,+TX",
   },
   {
     slug: "buddy",
@@ -55,44 +48,28 @@ const spots = [
     city: "Austin, TX",
     image: "/photos/buddy.jpg",
     alt: "Buddy the pup relaxing on the grass",
-    caption:
-      "Buddy loves making a splash anywhere in Austin.",
+    caption: "Buddy loves making a splash anywhere in Austin.",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=dog+friendly+water+Austin+TX",
   },
 ];
 
 export default function Home() {
-  const addSpotUrl = "https://forms.gle/REPLACE_ME"; // paste your Google Form link later
+  const addSpotUrl = "https://forms.gle/REPLACE_ME"; // paste your Google Form later
 
-  // Simple inline styles so layout looks good even if Tailwind isn’t active
-  const wrap: React.CSSProperties = { maxWidth: 1100, margin: "0 auto", padding: "0 16px" };
-  const hstack: React.CSSProperties = { display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 };
-  const sticky: React.CSSProperties = { position: "sticky", top: 0, background: "#fff", borderBottom: "1px solid #eee", zIndex: 50 };
-  const heroGrid: React.CSSProperties = {
-    display: "grid",
-    gridTemplateColumns: "1.1fr 0.9fr",
-    gap: 24,
-    alignItems: "center",
-    margin: "28px 0 16px",
-  };
-  const grid: React.CSSProperties = {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-    gap: 16,
-  };
-  const card: React.CSSProperties = {
-    border: "1px solid #e6e6e6",
-    borderRadius: 16,
-    overflow: "hidden",
-    background: "#fff",
-  };
-  const imgBox: React.CSSProperties = { position: "relative", width: "100%", aspectRatio: "4 / 3", background: "#f6f6f6" };
-  const body: React.CSSProperties = { padding: 14, lineHeight: 1.35 };
+  // simple inline styles so layout is stable even without Tailwind
+  const wrap: CSSProperties = { maxWidth: 1100, margin: "0 auto", padding: "0 16px" };
+  const hstack: CSSProperties = { display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 };
+  const sticky: CSSProperties = { position: "sticky", top: 0, background: "#fff", borderBottom: "1px solid #eee", zIndex: 50 };
+  const heroGrid: CSSProperties = { display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 24, alignItems: "center", margin: "28px 0 16px" };
+  const grid: CSSProperties = { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16 };
+  const card: CSSProperties = { border: "1px solid #e6e6e6", borderRadius: 16, overflow: "hidden", background: "#fff" };
+  const imgBox: CSSProperties = { position: "relative", width: "100%", aspectRatio: "4 / 3", background: "#f6f6f6" };
+  const body: CSSProperties = { padding: 14, lineHeight: 1.35 };
 
   return (
     <main style={{ background: "#ffffff", color: "#171717" }}>
-      {/* Header (logo stays crisp on any background) */}
+      {/* Header */}
       <header style={sticky}>
         <div style={wrap}>
           <div style={hstack}>
@@ -120,14 +97,7 @@ export default function Home() {
                 href={addSpotUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  textDecoration: "none",
-                  background: "#111",
-                  color: "#fff",
-                  padding: "8px 12px",
-                  borderRadius: 12,
-                  fontWeight: 600,
-                }}
+                style={{ textDecoration: "none", background: "#111", color: "#fff", padding: "8px 12px", borderRadius: 12, fontWeight: 600 }}
               >
                 + Add a Spot
               </a>
@@ -140,12 +110,10 @@ export default function Home() {
       <section style={wrap}>
         <div style={heroGrid}>
           <div>
-            <h1 style={{ fontSize: 34, lineHeight: 1.15, margin: 0 }}>
-              Find dog-friendly water near you 🐶🌊
-            </h1>
+            <h1 style={{ fontSize: 34, lineHeight: 1.15, margin: 0 }}>Find dog-friendly water near you 🐶🌊</h1>
             <p style={{ marginTop: 10, fontSize: 18, color: "#404040", maxWidth: 640 }}>
-              Discover creeks, lakes, splash pads, and safe access points with
-              notes from real Austin dog people. Built by dog people. Splash tested in ATX.
+              Discover creeks, lakes, splash pads, and safe access points with notes from real Austin dog people.
+              Built by dog people. Splash tested in ATX.
             </p>
             <div style={{ display: "flex", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
               <a href="#spots" style={{ textDecoration: "none", background: "#111", color: "#fff", padding: "10px 16px", borderRadius: 12, fontWeight: 600 }}>
@@ -158,7 +126,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Hero photo (constrained) */}
           <div style={{ ...imgBox, borderRadius: 16, overflow: "hidden" }}>
             <Image
               src="/photos/ladybird-murphy-misty.jpg"
@@ -179,13 +146,7 @@ export default function Home() {
           {spots.map((s) => (
             <article key={s.slug} style={card}>
               <div style={imgBox}>
-                <Image
-                  src={s.image}
-                  alt={s.alt}
-                  fill
-                  sizes="(max-width: 700px) 100vw, 400px"
-                  style={{ objectFit: "cover" }}
-                />
+                <Image src={s.image} alt={s.alt} fill sizes="(max-width: 700px) 100vw, 400px" style={{ objectFit: "cover" }} />
               </div>
               <div style={body}>
                 <div style={{ fontWeight: 700 }}>{s.name}</div>
@@ -212,4 +173,3 @@ export default function Home() {
     </main>
   );
 }
-TSX
