@@ -1,5 +1,3 @@
-cd ~/WetPetsWeb/wetpets
-cat > src/app/page.tsx <<'TSX'
 import Image from "next/image";
 import Link from "next/link";
 
@@ -57,29 +55,14 @@ export default function Home() {
       <header className="sticky top-0 z-40 w-full border-b bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <Link href="/" className="flex items-center gap-2">
-            {/* Crisp logo on any background */}
-            <Image
-              src="/logo.jpg"
-              alt="WetPets logo"
-              width={28}
-              height={28}
-              priority
-              className="rounded-md"
-            />
+            <Image src="/logo.jpg" alt="WetPets logo" width={28} height={28} priority className="rounded-md" />
             <span className="font-semibold tracking-tight">WetPets</span>
           </Link>
-
           <nav className="flex items-center gap-4 text-sm">
             <Link href="#spots" className="hover:underline">Spots</Link>
             <Link href="#how" className="hover:underline">How it works</Link>
             <Link href="/connections" className="hover:underline">Connections</Link>
-            <a
-              href={addSpotUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-xl border border-neutral-300 px-3 py-1.5 text-sm font-medium hover:bg-neutral-50"
-              title="Suggest a new dog-friendly water spot"
-            >
+            <a href={addSpotUrl} target="_blank" rel="noopener noreferrer" className="rounded-xl border border-neutral-300 px-3 py-1.5 text-sm font-medium hover:bg-neutral-50">
               Add a Spot
             </a>
           </nav>
@@ -88,9 +71,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="mx-auto max-w-6xl px-4 pt-10 pb-6">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
-          Find dog-friendly water near you in Austin 🐶🌊
-        </h1>
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Find dog-friendly water near you in Austin 🐶🌊</h1>
         <p className="mt-3 max-w-2xl text-lg text-neutral-700">
           Discover creeks, lakes, and splash pads with safety notes and local tips. Built by dog people. Splash tested in ATX.
         </p>
@@ -98,9 +79,7 @@ export default function Home() {
           <a href="#spots" className="rounded-2xl bg-black px-5 py-3 font-medium text-white shadow-sm hover:bg-neutral-800">
             Browse local spots
           </a>
-          <span className="rounded-2xl border border-neutral-300 px-5 py-3 text-neutral-700">
-            Download (coming soon)
-          </span>
+          <span className="rounded-2xl border border-neutral-300 px-5 py-3 text-neutral-700">Download (coming soon)</span>
         </div>
       </section>
 
@@ -110,14 +89,7 @@ export default function Home() {
           {spots.map((s) => (
             <article key={s.slug} className="overflow-hidden rounded-2xl border bg-white shadow-sm">
               <div className="relative aspect-[4/3] w-full">
-                <Image
-                  src={s.image}
-                  alt={s.alt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
-                  priority={s.slug === "lady-bird-lake"}
-                />
+                <Image src={s.image} alt={s.alt} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" priority={s.slug === "lady-bird-lake"} />
               </div>
               <div className="space-y-2 p-4">
                 <h3 className="text-lg font-semibold leading-tight">
@@ -125,12 +97,7 @@ export default function Home() {
                 </h3>
                 <p className="text-sm text-neutral-700">{s.caption}</p>
                 <div className="pt-2">
-                  <a
-                    href={s.mapUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-blue-700 underline underline-offset-2 hover:text-blue-800"
-                  >
+                  <a href={s.mapUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-blue-700 underline underline-offset-2 hover:text-blue-800">
                     Directions
                   </a>
                 </div>
@@ -153,11 +120,9 @@ export default function Home() {
       <footer className="border-t bg-white/70">
         <div className="mx-auto max-w-6xl px-4 py-6 text-sm text-neutral-600">
           Photos are representative. Always check posted signs and current conditions.
-          <br />
-          © {new Date().getFullYear()} WetPets. All splash rights reserved.
+          <br />© {new Date().getFullYear()} WetPets. All splash rights reserved.
         </div>
       </footer>
     </main>
   );
 }
-TSX
