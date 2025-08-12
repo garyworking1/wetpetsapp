@@ -1,110 +1,191 @@
-import Link from 'next/link';
-import Image from 'next/image';
-
-const ADD_SPOT_FORM = 'https://forms.gle/your-form-id'; // ← replace when ready
+import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = {
-  title: 'WetPets — Dog-Friendly Swimming Spots in Austin',
-  description: 'Find creeks, lakes, and splash pads for dogs in Austin. Built by dog people, splash tested in ATX.',
+  title: "WetPets — Dog-Friendly Swimming Spots in Austin",
+  description:
+    "Find creeks, lakes, splash pads, and safe access points for dogs in Austin. Built by dog people. Splash tested in ATX.",
 };
 
-function Card({
-  title, subtitle, imgSrc, imgAlt, href, wide = false,
-}: {
-  title: string; subtitle: string; imgSrc: string; imgAlt: string; href: string; wide?: boolean;
-}) {
-  return (
-    <article className={`rounded-2xl border border-neutral-200 overflow-hidden bg-white ${wide ? 'sm:col-span-2' : ''}`}>
-      <div className={wide ? 'relative w-full h-80' : 'relative w-full h-64'}>
-        <Image src={imgSrc} alt={imgAlt} fill sizes={wide ? '100vw' : '(max-width: 640px) 100vw, 50vw'} className="object-cover object-center" priority={false}/>
-      </div>
-      <div className="p-4">
-        <h3 className="font-semibold">{title}</h3>
-        <p className="text-sm text-neutral-700 mt-1">{subtitle}</p>
-        <a href={href} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-blue-700 underline underline-offset-4">
-          Directions
-        </a>
-      </div>
-    </article>
-  );
-}
+type Spot = {
+  slug: string;
+  name: string;
+  city: string;
+  image: string; // path in /public/photos
+  alt: string;
+  caption: string;
+  mapUrl: string; // external Google Maps link
+};
 
-export default function Home() {
+const spots: Spot[] = [
+  {
+    slug: "red-bud-isle",
+    name: "Red Bud Isle",
+    city: "Austin, TX",
+    image: "/photos/buddy.jpg",
+    alt: "Buddy relaxing on the grass",
+    caption: "Buddy loves making a splash anywhere in Austin.",
+    mapUrl:
+      "https://www.google.com/maps/place/Red+Bud+Isle/@30.2908494,-97.7894721,15z",
+  },
+  {
+    slug: "brushy-creek-hutto",
+    name: "Brushy Creek",
+    city: "Hutto, TX",
+    image: "/photos/brushycreek-gracy-misty.jpg",
+    alt: "Gracy and Misty at Brushy Creek (Hutto)",
+    caption:
+      "Gracy & Misty cooling off at Brushy Creek. Watch water flow after rains.",
+    mapUrl:
+      "https://www.google.com/maps/search/Brushy+Creek+Hutto+TX",
+  },
+  {
+    slug: "chisholm-trail-round-rock",
+    name: "Chisholm Trail",
+    city: "Round Rock, TX",
+    image: "/photos/chisholmtrail-gracy-misty.jpg",
+    alt: "Gracy and Misty at Chisholm Trail in Round Rock",
+    caption:
+      "Shallow ledges and gentle current. Great for cautious swimmers.",
+    mapUrl:
+      "https://www.google.com/maps/place/Chisholm+Trail+Crossing+Park,+Round+Rock,+TX",
+  },
+  {
+    slug: "lady-bird-lake",
+    name: "Lady Bird Lake",
+    city: "Austin, TX",
+    image: "/photos/ladybird-murphy-misty.jpg",
+    alt: "Murphy and Misty in a kayak on Lady Bird Lake",
+    caption:
+      "Kayak days with Misty. Launch from quiet coves and avoid busy bridges.",
+    mapUrl:       "https://www.google.com/maps/search/Lady+Bird+Lake+launch",
+  },
+];
+
+export default function Home(): JSX.Element {
+  const addSpotUrl = "https://forms.gle/REPLACE_ME"; // <- drop your Google Form link here later
+
   return (
     <main className="min-h-screen bg-white text-neutral-900">
       {/* Sticky header */}
-      <header className="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/55">
-        <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 font-semibold text-xl">
-            <span className="inline-flex items-center justify-center size-8 rounded-md bg-white ring-1 ring-black/5 shadow-sm overflow-hidden">
-              <Image src="/photos/IMG_0396.jpg" alt="WetPets logo" width={28} height={28} className="object-cover"/>
-            </span>
-            <span className="tracking-tight">WetPets</span>
+      <header className="sticky top-0 z-40 w-full border-b bg-white/90 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+          <Link href="/" className="flex items-center gap-2">
+            {/* Small logo kept crisp on any background */}
+            <Image
+              src="/logo.jpg"
+              alt="WetPets logo"
+              width={28}
+              height={28}
+              priority
+              className="rounded-md"
+            />
+            <span className="font-semibold tracking-tight">WetPets</span>
           </Link>
-          <nav className="hidden sm:flex items-center gap-6 text-sm">
-            <Link href="#how" className="underline-offset-4 hover:underline">How it works</Link>
-            <Link href="/spots" className="underline-offset-4 hover:underline">Spots</Link>
-            <Link href="/connections" className="underline-offset-4 hover:underline">Connections</Link>
-            <a href={ADD_SPOT_FORM} target="_blank" rel="noopener noreferrer" className="rounded-full px-3.5 py-1.5 text-sm font-medium bg-black text-white hover:opacity-90">
-              + Add a Spot
+
+          <nav className="flex items-center gap-4 text-sm">
+            <Link href="#spots" className="hover:underline">
+              Spots
+            </Link>
+            <Link href="#how" className="hover:underline">
+              How it works
+            </Link>
+            <Link href="/connections" className="hover:underline">
+              Connections
+            </Link>
+
+            {/* Add a Spot (external form) */}
+            <a
+              href={addSpotUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl border border-neutral-300 px-3 py-1.5 text-sm font-medium hover:bg-neutral-50"
+              title="Suggest a new dog-friendly water spot"
+            >
+              Add a Spot
             </a>
           </nav>
-          <a href={ADD_SPOT_FORM} target="_blank" rel="noopener noreferrer" className="sm:hidden rounded-full px-3 py-1.5 text-sm font-medium bg-black text-white hover:opacity-90">
-            + Add
-          </a>
         </div>
       </header>
 
-      {/* Hero with soft gradient */}
-      <section className="bg-gradient-to-b from-sky-50 to-white">
-        <div className="mx-auto max-w-6xl px-4 pt-10 pb-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Austin’s Dog‑Friendly Swimming Spot Locator 🐶🌊</h1>
-          <p className="mt-3 max-w-2xl text-lg text-neutral-700">
-            Find safe, fun places for pups to splash — shallow creeks, lake coves, launch spots, shade, parking, rules, and safety cues (coming soon).
-          </p>
-          <div className="mt-6 flex gap-3 flex-wrap">
-            <a id="app" href="#" className="rounded-2xl px-5 py-3 bg-black text-white font-medium shadow-sm hover:opacity-90" aria-disabled="true" title="Coming soon">
-              Download (coming soon)
-            </a>
-            <Link href="/spots" className="rounded-2xl px-5 py-3 border border-neutral-300 hover:bg-neutral-50">
-              Browse local spots
-            </Link>
-          </div>
+      {/* Hero */}
+      <section className="mx-auto max-w-6xl px-4 pt-10 pb-6">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+          Find dog-friendly water near you in Austin 🐶🌊
+        </h1>
+        <p className="mt-3 max-w-2xl text-lg text-neutral-700">
+          Discover creeks, lakes, and splash pads with safety notes and local
+          tips. Built by dog people. Splash tested in ATX.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a
+            href="#spots"
+            className="rounded-2xl bg-black px-5 py-3 font-medium text-white shadow-sm hover:bg-neutral-800"
+          >
+            Browse local spots
+          </a>
+          <span className="rounded-2xl border border-neutral-300 px-5 py-3 text-neutral-700">
+            Download (coming soon)
+          </span>
         </div>
       </section>
 
-      {/* Why WetPets */}
-      <section id="how" className="mx-auto max-w-6xl px-4 py-10">
-        <div className="grid sm:grid-cols-3 gap-4">
-          <div className="rounded-2xl border border-neutral-200 p-4 bg-white">
-            <h3 className="font-semibold">Curated for ATX</h3>
-            <p className="text-neutral-700 text-sm mt-1">Verified spots around Austin, Hutto, Round Rock, and beyond.</p>
-          </div>
-          <div className="rounded-2xl border border-neutral-200 p-4 bg-white">
-            <h3 className="font-semibold">Safety & Access</h3>
-            <p className="text-neutral-700 text-sm mt-1">Currents, algae advisories, access points, parking, shade.</p>
-          </div>
-          <div className="rounded-2xl border border-neutral-200 p-4 bg-white">
-            <h3 className="font-semibold">Built by Dog People</h3>
-            <p className="text-neutral-700 text-sm mt-1">Real photos, real pups (Misty, Buddy, and friends).</p>
-          </div>
+      {/* Featured Spots */}
+      <section id="spots" className="mx-auto max-w-6xl px-4 pb-12">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {spots.map((s) => (
+            <article
+              key={s.slug}
+              className="overflow-hidden rounded-2xl border bg-white shadow-sm"
+            >
+              <div className="relative aspect-[4/3] w-full">
+                <Image
+                  src={s.image}
+                  alt={s.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
+                  priority={s.slug === "lady-bird-lake"}
+                />
+              </div>
+
+              <div className="space-y-2 p-4">
+                <h3 className="text-lg font-semibold leading-tight">
+                  {s.name} <span className="font-normal text-neutral-500">— {s.city}</span>
+                </h3>
+                <p className="text-sm text-neutral-700">{s.caption}</p>
+
+                <div className="pt-2">
+                  <a
+                    href={s.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-blue-700 underline underline-offset-2 hover:text-blue-800"
+                  >
+                    Directions
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* Featured Spots (tight, consistent crop) */}
-      <section className="mx-auto max-w-6xl px-4 pb-14">
-        <h2 className="text-2xl font-bold mb-4">Featured Austin‑area spots</h2>
-        <div className="grid gap-5 sm:grid-cols-2">
-          <Card title="Brushy Creek — Hutto, TX" subtitle="Gracy & Misty enjoying shallow currents and easy rock access." imgSrc="/photos/IMG_0679.jpg" imgAlt="Gracy and Misty at Brushy Creek, Hutto" href="https://www.google.com/maps/search/?api=1&query=Brushy+Creek+Hutto+TX"/>
-          <Card title="Chisholm Trail — Round Rock, TX" subtitle="Rock bars with gentle flow around islands. Watch levels after rain." imgSrc="/photos/IMG_0673.jpg" imgAlt="Gracy and Misty at Chisholm Trail, Round Rock" href="https://www.google.com/maps/search/?api=1&query=Chisholm+Trail+Round+Rock+TX"/>
-          <Card title="Lady Bird Lake — Austin, TX" subtitle="Murphy & Misty on the water downtown. Calm paddles, skyline views." imgSrc="/photos/IMG_7858.jpg" imgAlt="Murphy and Misty kayaking on Lady Bird Lake" href="https://www.google.com/maps/search/?api=1&query=Lady+Bird+Lake+Austin+TX" wide/>
-          <Card title="Buddy — Mascot" subtitle="Buddy loves making a splash anywhere in Austin." imgSrc="/photos/IMG_8032.jpg" imgAlt="Buddy the dog portrait" href="https://www.google.com/maps/search/?api=1&query=Austin+TX"/>
-        </div>
-        <p className="text-sm text-neutral-600 mt-4">Photos are representative. Always check posted signs and current conditions.</p>
+      {/* How it works */}
+      <section id="how" className="mx-auto max-w-6xl px-4 pb-16">
+        <h2 className="text-2xl font-bold">How WetPets works</h2>
+        <ul className="mt-3 list-disc space-y-1 pl-6 text-neutral-700">
+          <li>Curated, dog-friendly water access points around Austin.</li>
+          <li>Safety notes (depth, current, hazards) and best times to visit.</li>
+          <li>Community tips and photos (Add a Spot button above).</li>
+        </ul>
       </section>
 
-      <footer className="border-t border-neutral-200">
+      {/* Footer */}
+      <footer className="border-t bg-white/70">
         <div className="mx-auto max-w-6xl px-4 py-6 text-sm text-neutral-600">
+          Photos are representative. Always check posted signs and current conditions.
+          <br />
           © {new Date().getFullYear()} WetPets. All splash rights reserved.
         </div>
       </footer>
