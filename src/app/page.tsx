@@ -186,7 +186,7 @@ export default function Home() {
                     Directions
                   </a>
                   <a
-                    href="#"
+                    href={'/spots/' + s.slug}
                     className="text-blue-700 underline-offset-4 hover:underline"
                   >
                     Learn more
