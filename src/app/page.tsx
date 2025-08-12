@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default function Home() {
-  const addSpotUrl = "#"; // drop your Google Form link when ready
+  const addSpotUrl = "https://forms.gle/PASTE_YOUR_FORM_LINK_HERE"; // drop your Google Form link when ready
 
   return (
     <main className="min-h-screen bg-white text-neutral-900">

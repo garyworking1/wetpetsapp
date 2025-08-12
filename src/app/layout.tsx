@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const addSpotUrl = "#"; // replace with your Google Form when ready
+  const addSpotUrl = "https://forms.gle/PASTE_YOUR_FORM_LINK_HERE"; // replace with your Google Form when ready
 
   return (
     <html lang="en">
