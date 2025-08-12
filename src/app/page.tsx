@@ -1,3 +1,13 @@
+import Image from "next/image";
+import Link from "next/link";
+import { spots } from "./spots/data";
+
+export const metadata = {
+  title: "WetPets — Dog-Friendly Swimming Spots in Austin",
+  description:
+    "Find creeks, lakes, splash pads, and safe access points for dogs in Austin. Built by dog people. Splash tested in ATX.",
+};
+
 export default function Home() {
   const addSpotUrl = "#"; // drop your Google Form link when ready
 
@@ -99,4 +109,4 @@ export default function Home() {
       </footer>
     </main>
   );
-}
+
