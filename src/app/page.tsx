@@ -13,9 +13,9 @@ export default function Home() {
       <header className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
         <Link href="/" className="font-semibold text-xl">WetPets</Link>
         <nav className="text-sm space-x-6">
-          <a href="#how" className="underline-offset-4 hover:underline">How it works</a>
-          <a href="#spots" className="underline-offset-4 hover:underline">Spots</a>
-          <a href="#app" className="underline-offset-4 hover:underline">Get the app</a>
+          <Link href="#how" className="underline-offset-4 hover:underline">How it works</Link>
+          <Link href="#spots" className="underline-offset-4 hover:underline">Spots</Link>
+          <Link href="#app" className="underline-offset-4 hover:underline">Get the app</Link>
         </nav>
       </header>
 
@@ -38,12 +38,12 @@ export default function Home() {
           >
             Download (coming soon)
           </a>
-          <a
+          <Link
             href="#spots"
             className="rounded-2xl px-5 py-3 border border-neutral-300 hover:bg-neutral-50"
           >
             Browse local spots
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -65,13 +65,13 @@ export default function Home() {
           <div className="rounded-2xl border border-neutral-200 p-4">
             <h3 className="font-semibold">Built by Dog People</h3>
             <p className="text-neutral-700 text-sm mt-1">
-              Splash‑tested by locals. We go where our pups go.
+              Splash-tested by locals. We go where our pups go.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Spots (2 real examples for now) */}
+      {/* Spots */}
       <section id="spots" className="mx-auto max-w-5xl px-4 pb-14">
         <h2 className="text-2xl font-bold mb-4">Featured Austin spots</h2>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -85,7 +85,7 @@ export default function Home() {
             <div className="p-4">
               <h3 className="font-semibold">Red Bud Isle</h3>
               <p className="text-sm text-neutral-700 mt-1">
-                Off‑leash island on Lady Bird Lake with gentle water access. Popular for swimming dogs.
+                Off-leash island on Lady Bird Lake with gentle water access. Popular for swimming dogs.
               </p>
               <ul className="text-sm text-neutral-600 mt-2 list-disc pl-5">
                 <li>Parking lot fills on weekends</li>
@@ -99,14 +99,6 @@ export default function Home() {
                   className="text-blue-700 underline underline-offset-4"
                 >
                   Directions
-                </a>
-                <a
-                  href="#"
-                  className="text-neutral-700 underline underline-offset-4"
-                  aria-disabled="true"
-                  title="Coming soon"
-                >
-                  See more details
                 </a>
               </div>
             </div>
@@ -137,22 +129,10 @@ export default function Home() {
                 >
                   Directions
                 </a>
-                <a
-                  href="#"
-                  className="text-neutral-700 underline underline-offset-4"
-                  aria-disabled="true"
-                  title="Coming soon"
-                >
-                  See more details
-                </a>
               </div>
             </div>
           </article>
         </div>
-
-        <p className="text-sm text-neutral-600 mt-4">
-          Photos are representative. Always check posted signs and current conditions.
-        </p>
       </section>
 
       {/* Footer */}
