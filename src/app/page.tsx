@@ -62,7 +62,7 @@ const spots: Spot[] = [
   },
 ];
 
-export default function Home(): JSX.Element {
+export default function Home(): Home() {
   const addSpotUrl = "https://forms.gle/REPLACE_ME"; // <- drop your Google Form link here later
 
   return (
