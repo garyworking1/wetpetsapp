@@ -1,21 +1,20 @@
-import type { ReactNode } from 'react';
-import Script from 'next/script';
+// src/app/layout.tsx
+import "./globals.css";
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export const metadata = {
+  title: "WetPets — Dog-Friendly Swimming Spots in Austin",
+  description:
+    "Find creeks, lakes, splash pads, and access points for dogs in Austin. Built by dog people. Splash tested in ATX.",
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <head>
-        {/* Plausible Analytics with outbound links + 404 tracking */}
-        <Script
-          defer
-          data-domain="wetpets.app"
-          data-api="/api/event"
-          src="https://plausible.io/js/script.outbound-links.404.js"
-        />
-      </head>
-      <body>
-        {children}
-      </body>
+      <body className="antialiased bg-white text-neutral-900">{children}</body>
     </html>
   );
 }
