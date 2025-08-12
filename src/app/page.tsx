@@ -42,8 +42,8 @@ export default function Home() {
 
         <div className="overflow-hidden rounded-xl border border-neutral-200">
           <Image
-            src="/photos/ladybird-murphy-misty.jpg"
-            alt="Murphy and Misty kayaking on Lady Bird Lake"
+            src="/photos/ladybird-misty-skyline.jpg"
+            alt="Misty with the Austin skyline on Lady Bird Lake"
             width={1200}
             height={900}
             className="h-full w-full object-cover"
