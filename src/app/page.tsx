@@ -52,7 +52,16 @@ const spots = [
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=dog+friendly+water+Austin+TX",
   },
-];
+  {
+    slug: "red-bud-isle",
+    name: "Red Bud Isle",
+    city: "Austin, TX",
+    image: "/photos/buddy.jpg",
+    alt: "Buddy smiling near the water",
+    caption: "Off-leash island with easy water access. Watch currents and bring water.",
+    mapUrl: "https://www.google.com/maps/place/Red+Bud+Isle/@30.2908494,-97.7894721,15z",
+  },
+  ];
 
 export default function Home() {
   const addSpotUrl = "https://forms.gle/REPLACE_ME"; // paste your Google Form later
