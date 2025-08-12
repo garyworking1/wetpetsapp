@@ -106,6 +106,9 @@ export default function Home() {
           conditions.
         </p>
         <p>© {new Date().getFullYear()} WetPets. All splash rights reserved.</p>
+        <p className="mt-1 text-xs text-neutral-500">
+          Bull Creek & Walnut Creek photos: Larry D. Moore — CC BY 4.0.
+        </p>
       </footer>
     </main>
   );
