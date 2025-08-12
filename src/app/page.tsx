@@ -63,7 +63,7 @@ const spots: Spot[] = [
 ];
 
 export default function Home() {
-  const addSpotUrl = "https://forms.gle/REPLACE_ME"; // <- drop your Google Form link later
+  const addSpotUrl = "https://forms.gle/YOUR_FORM_ID"; // <- drop your Google Form link later
 
   return (
     <main className="min-h-screen bg-white text-neutral-900">
