@@ -42,7 +42,7 @@ export default function Home() {
 
         <div className="overflow-hidden rounded-xl border border-neutral-200">
           <Image
-            src="/photos/ladybird-misty-solo-clean.jpg"
+            src="/photos/ladybird-misty-solo.jpg"
             alt="Misty with the Austin skyline from Lady Bird Lake"
             width={1200}
             height={900}
