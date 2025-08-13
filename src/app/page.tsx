@@ -9,12 +9,10 @@ export const metadata = {
 };
 
 export default function Home() {
-  const addSpotUrl = "#"; // drop your Google Form when ready
+  const addSpotUrl = "#"; // drop your Google Form link when ready
 
   return (
     <main className="min-h-screen bg-white text-neutral-900">
-      {/* Header lives in layout */}
-
       {/* Hero */}
       <section className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-8 px-4 pb-4 pt-8 md:grid-cols-2">
         <div>
@@ -42,7 +40,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Hero image — crop to hide arm/leg via object-position */}
+        {/* Hero image — crop to hide arm/leg */}
         <div className="overflow-hidden rounded-xl border border-neutral-200">
           <Image
             src="/photos/IMG_7863.jpg"
@@ -51,6 +49,7 @@ export default function Home() {
             height={1200}
             priority
             className="h-full w-full object-cover object-[70%_45%]"
+            style={{ objectPosition: "70% 45%" }}
           />
         </div>
       </section>
