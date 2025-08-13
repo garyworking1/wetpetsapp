@@ -32,7 +32,7 @@ const spotList: Spot[] = [
     alt: "Misty by the big limestone 'Round Rock' with water flowing around it.",
     caption: "Classic limestone ledges and the namesake Round Rock—great for cautious swimmers.",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Chisholm+Trail+Crossing+Round+Rock+TX",
-    objectPosition: "object-top",
+    objectPosition: "object-center",
   },
   {
     slug: "lady-bird-lake",
