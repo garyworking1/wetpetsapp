@@ -78,4 +78,3 @@ const spots: Spot[] = [
   },
 ];
 
-export default spots;
