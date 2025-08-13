@@ -50,7 +50,7 @@ export default function Home() {
             width={1600}
             height={1200}
             priority
-            className="h-full w-full object-cover [object-position:70%_45%]"
+            className="h-full w-full object-cover object-[70%_45%]"
           />
         </div>
       </section>
