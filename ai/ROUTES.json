@@ -1,0 +1,14 @@
+{
+"routes": [
+{ "path": "/", "status": "stable" },
+{ "path": "/add-spot", "status": "stable" },
+{ "path": "/spots", "status": "stable" },
+{ "path": "/spots/[slug]", "status": "stable", "paramsFrom": "spots.data.ts" }
+],
+"spotSlugsFrom": "src/app/spots/data.ts",
+"checks": [
+"npm run build must pass",
+"All images must live under /public",
+"No inline <a> for internal links; use next/link"
+]
+}
