@@ -1,6 +1,7 @@
 import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 import type { ReactNode } from "react";
 
 export const metadata = {
@@ -41,6 +42,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
         </header>
         {children}
+        <Script
+          defer
+          data-domain="wetpets.app"
+          src="https://plausible.io/js/script.outbound-links.js"
+        />
       </body>
     </html>
   );

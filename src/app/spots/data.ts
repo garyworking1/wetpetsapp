@@ -6,6 +6,7 @@ export type Spot = {
   alt: string;
   caption: string;
   mapUrl: string;
+  objectPosition?: string;
 };
 
 // NOTE: File names here are chosen to make the displayed photos correct,
@@ -16,20 +17,22 @@ const spotList: Spot[] = [
     name: "Brushy Creek",
     city: "Hutto, TX",
     // ← Brushy should show the gentle creek scene
-    image: "/photos/brushycreek-gracy-misty.jpg",
+    image: "/photos/chisholmtrail-gracy-misty.jpg",
     alt: "Gracy & Misty scouting safe, shallow water at Brushy Creek (Hutto).",
     caption: "Gracy + Misty scouting safe, shallow water at Brushy Creek (Hutto).",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Brushy+Creek+Hutto+TX",
+    objectPosition: "object-top",
   },
   {
     slug: "chisholm-trail",
     name: "Chisholm Trail",
     city: "Round Rock, TX",
     // ← Chisholm should show the famous Round Rock with water flowing around it
-    image: "/photos/chisholmtrail-gracy-misty.jpg",
+    image: "/photos/brushycreek-gracy-misty.jpg",
     alt: "Misty by the big limestone 'Round Rock' with water flowing around it.",
     caption: "Classic limestone ledges and the namesake Round Rock—great for cautious swimmers.",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Chisholm+Trail+Crossing+Round+Rock+TX",
+    objectPosition: "object-top",
   },
   {
     slug: "lady-bird-lake",
@@ -54,7 +57,7 @@ const spotList: Spot[] = [
     slug: "bull-creek",
     name: "Bull Creek",
     city: "Austin, TX",
-    image: "/photos/cc/bullcreek-commons.jpg",
+    image: "/photos/IMG_7582.jpg",
     alt: "Limestone shelves and clear water at Bull Creek",
     caption: "Clear water, limestone shelves, and little cascades—watch for spring flow.",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Bull+Creek+Austin+TX",
@@ -67,6 +70,15 @@ const spotList: Spot[] = [
     alt: "Shaded trail and shallow crossings at Walnut Creek",
     caption: "Shaded crossings and off-leash trails. After storms water can run fast.",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Walnut+Creek+Metro+Park+Austin+TX",
+  },
+  {
+    slug: "shaded-bend-sample",
+    name: "Shaded bend (sample)",
+    city: "Austin, TX",
+    image: "/photos/IMG_6549(2).jpeg",
+    alt: "Shaded bend sample",
+    caption: "Afternoon shade, easy exit.",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Austin+TX+river+bend",
   },
 ];
 
