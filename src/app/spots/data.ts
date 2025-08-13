@@ -10,32 +10,28 @@ export type Spot = {
 };
 
 export const spots: Spot[] = [
-  // ✅ Chisholm Trail = the famous big rock crossing in Round Rock
-  {
-    slug: "chisholm-trail",
-    name: "Chisholm Trail",
-    city: "Round Rock, TX",
-    image: "/photos/brushycreek-gracy-misty.jpg", // rock in the middle
-    alt: "Gracy and Misty standing on the big rock at the Chisholm Trail crossing",
-    caption:
-      "Shallow crossing around the big rock—namesake of Round Rock. Great for cautious swimmers.",
-    mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=Chisholm+Trail+Crossing+Round+Rock+TX",
-  },
-
-  // ✅ Brushy Creek (Hutto) = limestone ledges & gentle flow
   {
     slug: "brushy-creek",
     name: "Brushy Creek",
     city: "Hutto, TX",
-    image: "/photos/chisholmtrail-gracy-misty.jpg", // limestone ledges
-    alt: "Gracy and Misty on limestone ledges with gentle flow at Brushy Creek",
+    image: "/photos/brushycreek-gracy-misty.jpg",
+    alt: "Gracy and Misty scouting on a limestone ledge at Brushy Creek",
     caption:
-      "Classic limestone ledges and gentle flow—great for cautious swimmers (Hutto).",
+      "Gracy + Misty scouting safe, shallow water at Brushy Creek (Hutto).",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Brushy+Creek+Hutto+TX",
   },
-
+  {
+    slug: "chisholm-trail",
+    name: "Chisholm Trail",
+    city: "Round Rock, TX",
+    image: "/photos/chisholmtrail-gracy-misty.jpg",
+    alt: "Gracy and Misty on limestone ledges with gentle flow",
+    caption:
+      "Classic limestone ledges and gentle flow—great for cautious swimmers.",
+    mapUrl:
+      "https://www.google.com/maps/search/?api=1&query=Chisholm+Trail+Crossing+Round+Rock+TX",
+  },
   {
     slug: "lady-bird-lake",
     name: "Lady Bird Lake",
@@ -47,15 +43,17 @@ export const spots: Spot[] = [
     mapUrl: "https://www.google.com/maps/place/Lady+Bird+Lake,+Austin,+TX",
   },
 
+  // Buddy photo is actually Red Bud Isle Trail — make it an actual spot
   {
-    slug: "buddy-mascot",
-    name: "Buddy (mascot)",
+    slug: "red-bud-isle",
+    name: "Red Bud Isle Trail",
     city: "Austin, TX",
     image: "/photos/buddy-mascot.jpg",
-    alt: "Buddy standing on roots by the water",
-    caption: "Buddy loves making a splash anywhere in Austin.",
+    alt: "Buddy on cypress roots at Red Bud Isle Trail in Austin",
+    caption:
+      "Off-leash island with easy water access. Watch currents and bring water.",
     mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=Austin+TX+dog+friendly+water",
+      "https://www.google.com/maps/place/Red+Bud+Isle+Trail,+Austin,+TX+78746",
   },
 
   {
@@ -63,22 +61,24 @@ export const spots: Spot[] = [
     name: "Bull Creek",
     city: "Austin, TX",
     image: "/photos/cc/bullcreek-commons.jpg",
-    alt: "Two dogs splashing near a limestone cascade at a creek",
+    alt: "Bull Creek limestone shelves and clear water",
     caption:
       "Clear water, limestone shelves, and little cascades—watch for spring flow.",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Bull+Creek+Austin+TX",
   },
-
   {
     slug: "walnut-creek",
     name: "Walnut Creek Metro Park",
     city: "Austin, TX",
     image: "/photos/cc/walnutcreek-commons.jpg",
-    alt: "Australian Cattle Dog mid-splash in a shaded creek",
+    alt: "Walnut Creek shaded crossing under trees",
     caption:
       "Shaded crossings and off-leash trails. After storms water can run fast.",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Walnut+Creek+Metro+Park+Austin+TX",
   },
 ];
+
+export const getSpotBySlug = (slug: string) =>
+  spots.find((s) => s.slug === slug);
