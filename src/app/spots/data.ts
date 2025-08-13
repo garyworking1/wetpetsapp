@@ -9,13 +9,13 @@ export type Spot = {
   mapUrl: string;
 };
 
-const spots: Spot[] = [
+const spotList: Spot[] = [
   {
     slug: "brushy-creek",
     name: "Brushy Creek",
     city: "Hutto, TX",
-    // Brushy = the gentle shallow creek shot
-    image: "/photos/chisholmtrail-gracy-misty.jpg",
+    // Brushy = gentle shallow creek shot
+    image: "/photos/brushycreek-gracy-misty.jpg",
     alt: "Gracy and Misty wading in safe, shallow water at Brushy Creek (Hutto)",
     caption:
       "Gracy + Misty scouting safe, shallow water at Brushy Creek (Hutto).",
@@ -27,7 +27,7 @@ const spots: Spot[] = [
     name: "Chisholm Trail",
     city: "Round Rock, TX",
     // Chisholm = the famous Round Rock (water around the rock)
-    image: "/photos/brushycreek-gracy-misty.jpg",
+    image: "/photos/chisholmtrail-gracy-misty.jpg",
     alt: "Misty by the big limestone 'Round Rock' with water flowing around it",
     caption:
       "Classic limestone ledges and the namesake Round Rock—great for cautious swimmers.",
@@ -38,7 +38,7 @@ const spots: Spot[] = [
     slug: "lady-bird-lake",
     name: "Lady Bird Lake",
     city: "Austin, TX",
-    image: "/photos/ladybird-misty-solo-clean.jpg", // use the cleaned hero asset here too
+    image: "/photos/ladybird-misty-solo-clean.jpg",
     alt: "Misty with the Austin skyline from Lady Bird Lake",
     caption:
       "Kayak days with Misty—watch wakes and heat, bring a dog life jacket.",
@@ -58,7 +58,7 @@ const spots: Spot[] = [
     slug: "bull-creek",
     name: "Bull Creek",
     city: "Austin, TX",
-    image: "/photos/cc/bullcreek-commons.jpg", // real location photo
+    image: "/photos/cc/bullcreek-commons.jpg",
     alt: "Bull Creek limestone shelves and clear water",
     caption:
       "Clear water, limestone shelves, and little cascades—watch for spring flow.",
@@ -69,7 +69,7 @@ const spots: Spot[] = [
     slug: "walnut-creek",
     name: "Walnut Creek Metro Park",
     city: "Austin, TX",
-    image: "/photos/cc/walnutcreek-commons.jpg", // real location photo
+    image: "/photos/cc/walnutcreek-commons.jpg",
     alt: "Walnut Creek shaded trail crossing",
     caption:
       "Shaded crossings and off-leash trails. After storms water can run fast.",
@@ -77,4 +77,8 @@ const spots: Spot[] = [
       "https://www.google.com/maps/search/?api=1&query=Walnut+Creek+Metro+Park+Austin+TX",
   },
 ];
+
+// Export both ways so imports can't break
+export default spotList;
+export { spotList as spots };
 

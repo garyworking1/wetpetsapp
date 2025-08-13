@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { spots } from "./spots/data";
+import spots from "./spots/data";
 
 export const metadata = {
   title: "WetPets — Dog-Friendly Swimming Spots in Austin",
@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default function Home() {
-  const addSpotUrl = "https://forms.gle/YOUR_SHORT_LINK_HERE"; // drop your Google Form link when ready
+  const addSpotUrl = "#"; // plug in your real form later
 
   return (
     <main className="min-h-screen bg-white text-neutral-900">
@@ -32,7 +32,7 @@ export default function Home() {
               Browse local spots
             </a>
             <a
-              href={addSpotUrl} target="_blank" rel="noopener noreferrer" 
+              href={addSpotUrl}
               className="rounded-2xl bg-black px-5 py-3 font-medium text-white hover:bg-neutral-800"
             >
               + Add a Spot
@@ -42,8 +42,8 @@ export default function Home() {
 
         <div className="overflow-hidden rounded-xl border border-neutral-200">
           <Image
-            src="/photos/ladybird-misty-skyline.jpg"
-            alt="Misty with the Austin skyline on Lady Bird Lake"
+            src="/photos/ladybird-misty-solo-clean.jpg"
+            alt="Misty with the Austin skyline from Lady Bird Lake"
             width={1200}
             height={900}
             className="h-full w-full object-cover"
@@ -106,9 +106,6 @@ export default function Home() {
           conditions.
         </p>
         <p>© {new Date().getFullYear()} WetPets. All splash rights reserved.</p>
-        <p className="mt-1 text-xs text-neutral-500">
-          Bull Creek & Walnut Creek photos: Larry D. Moore — CC BY 4.0.
-        </p>
       </footer>
     </main>
   );
