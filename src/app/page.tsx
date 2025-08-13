@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default function Home() {
-  const addSpotUrl = "#"; // drop your Google Form link when ready
+  const addSpotUrl = "/add-spot";
 
   return (
     <main className="min-h-screen bg-white text-neutral-900">
@@ -31,25 +31,25 @@ export default function Home() {
             >
               Browse local spots
             </a>
-            <a
+            <Link
               href={addSpotUrl}
               className="rounded-2xl bg-black px-5 py-3 font-medium text-white hover:bg-neutral-800"
             >
               + Add a Spot
-            </a>
+            </Link>
           </div>
         </div>
 
-        {/* Hero image — crop to hide arm/leg */}
+        {/* Hero image — prefers cleaned file; still looks good if it's the original */}
         <div className="overflow-hidden rounded-xl border border-neutral-200">
           <Image
-            src="/photos/IMG_7863.jpg"
+            src="/photos/ladybird-misty-solo.jpg"
             alt="Misty with the Austin skyline from Lady Bird Lake"
             width={1600}
             height={1200}
             priority
-            className="h-full w-full object-cover object-[70%_45%]"
-            style={{ objectPosition: "70% 45%" }}
+            className="h-full w-full object-cover object-[65%_50%]"
+            style={{ objectPosition: "65% 50%" }}
           />
         </div>
       </section>

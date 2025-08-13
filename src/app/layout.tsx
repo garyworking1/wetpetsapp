@@ -16,17 +16,20 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <header className="sticky top-0 z-40 border-b border-neutral-200/70 bg-white/90 backdrop-blur">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.jpg" alt="WetPets logo" width={28} height={28} className="rounded-md" priority />
+              <Image
+                src="/logo.jpg"
+                alt="WetPets logo"
+                width={28}
+                height={28}
+                className="rounded-md"
+                priority
+              />
               <span className="font-semibold">WetPets</span>
             </Link>
 
             <nav className="hidden gap-6 text-sm md:flex">
-              <Link href="/spots" className="underline-offset-4 hover:underline">
-                Spots
-              </Link>
-              <Link href="/#how" className="underline-offset-4 hover:underline">
-                How it works
-              </Link>
+              <Link href="/spots" className="underline-offset-4 hover:underline">Spots</Link>
+              <Link href="/#how" className="underline-offset-4 hover:underline">How it works</Link>
             </nav>
 
             <Link
@@ -37,7 +40,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Link>
           </div>
         </header>
-
         {children}
       </body>
     </html>

@@ -8,13 +8,16 @@ export type Spot = {
   mapUrl: string;
 };
 
+// NOTE: File names here are chosen to make the displayed photos correct,
+// even if the original filenames were misleading.
 const spotList: Spot[] = [
   {
     slug: "brushy-creek",
     name: "Brushy Creek",
     city: "Hutto, TX",
+    // ← Brushy should show the gentle creek scene
     image: "/photos/brushycreek-gracy-misty.jpg",
-    alt: "Gracy and Misty wading in safe, shallow water at Brushy Creek (Hutto).",
+    alt: "Gracy & Misty scouting safe, shallow water at Brushy Creek (Hutto).",
     caption: "Gracy + Misty scouting safe, shallow water at Brushy Creek (Hutto).",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Brushy+Creek+Hutto+TX",
   },
@@ -22,6 +25,7 @@ const spotList: Spot[] = [
     slug: "chisholm-trail",
     name: "Chisholm Trail",
     city: "Round Rock, TX",
+    // ← Chisholm should show the famous Round Rock with water flowing around it
     image: "/photos/chisholmtrail-gracy-misty.jpg",
     alt: "Misty by the big limestone 'Round Rock' with water flowing around it.",
     caption: "Classic limestone ledges and the namesake Round Rock—great for cautious swimmers.",
@@ -31,8 +35,9 @@ const spotList: Spot[] = [
     slug: "lady-bird-lake",
     name: "Lady Bird Lake",
     city: "Austin, TX",
-    image: "/photos/ladybird-misty-solo.jpg",
-    alt: "Misty with the Austin skyline from Lady Bird Lake.",
+    // Card uses your original kayaking photo so it always loads
+    image: "/photos/ladybird-murphy-misty.jpg",
+    alt: "Murphy and Misty kayaking on Lady Bird Lake",
     caption: "Kayak days with Misty—watch wakes and heat, bring a dog life jacket.",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Lady+Bird+Lake+Austin+TX",
   },
@@ -41,30 +46,29 @@ const spotList: Spot[] = [
     name: "Buddy (mascot)",
     city: "Austin, TX",
     image: "/photos/buddy-redbud.jpg",
-    alt: "Buddy on a tree root by the water.",
+    alt: "Buddy on tree roots above the water at Red Bud Isle Trail",
     caption: "Buddy loves making a splash anywhere in Austin.",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=Red+Bud+Isle+Trail+Austin+TX",
+    mapUrl: "https://www.google.com/maps/place/Red+Bud+Isle/",
   },
   {
     slug: "bull-creek",
     name: "Bull Creek",
     city: "Austin, TX",
     image: "/photos/cc/bullcreek-commons.jpg",
-    alt: "Bull Creek District Park—clear water and limestone shelves.",
+    alt: "Limestone shelves and clear water at Bull Creek",
     caption: "Clear water, limestone shelves, and little cascades—watch for spring flow.",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=Bull+Creek+District+Park+Austin+TX",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Bull+Creek+Austin+TX",
   },
   {
     slug: "walnut-creek",
     name: "Walnut Creek Metro Park",
     city: "Austin, TX",
     image: "/photos/cc/walnutcreek-commons.jpg",
-    alt: "Shallow crossing at Walnut Creek Metro Park.",
+    alt: "Shaded trail and shallow crossings at Walnut Creek",
     caption: "Shaded crossings and off-leash trails. After storms water can run fast.",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Walnut+Creek+Metro+Park+Austin+TX",
   },
 ];
 
-// Export both ways so imports can't break again.
-export const spots: Spot[] = spotList;
-export default spots;
+export const spots = spotList;
+export default spotList;

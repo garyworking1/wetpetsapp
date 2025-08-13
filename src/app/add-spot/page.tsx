@@ -5,8 +5,8 @@ export const metadata = {
   description: "Share a dog-friendly creek, lake, or splash pad with the WetPets community.",
 };
 
-// Paste your Google Form *embed* URL here when you have it.
-// Example: "https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true"
+// Paste your Google Form *embed* URL here when you have it, e.g.:
+// "https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true"
 const FORM_EMBED_URL = "";
 
 export default function AddSpotPage() {
@@ -16,22 +16,17 @@ export default function AddSpotPage() {
     <main className="mx-auto max-w-4xl px-4 py-10">
       <h1 className="mb-2 text-3xl font-bold">Add a Spot</h1>
       <p className="mb-6 text-neutral-700">
-        Tell us about a safe place for dogs to splash in or near Austin. Photos and specific
-        access notes are super helpful.
+        Tell us about a safe splash spot. Photos and access notes help others a ton.
       </p>
 
       {hasEmbed ? (
         <div className="overflow-hidden rounded-xl border border-neutral-200">
-          <iframe
-            src={FORM_EMBED_URL}
-            className="h-[1400px] w-full"
-            loading="lazy"
-          />
+          <iframe src={FORM_EMBED_URL} className="h-[1400px] w-full" loading="lazy" />
         </div>
       ) : (
         <div className="space-y-4 rounded-xl border border-dashed border-neutral-300 p-6">
           <p className="text-neutral-700">
-            Don’t have the Google Form link set up yet. No worries—use one of these:
+            Form not connected yet. Use one of these for now:
           </p>
           <div className="flex flex-wrap gap-3">
             <a
@@ -40,16 +35,12 @@ export default function AddSpotPage() {
             >
               Email us the details
             </a>
-            <Link
-              href="/spots"
-              className="rounded-full border border-neutral-300 px-5 py-3 hover:bg-neutral-50"
-            >
-              Go back to spots
+            <Link href="/spots" className="rounded-full border border-neutral-300 px-5 py-3 hover:bg-neutral-50">
+              Back to spots
             </Link>
           </div>
           <p className="text-sm text-neutral-500">
-            When you’re ready, edit <code>src/app/add-spot/page.tsx</code> and paste your Google
-            Form embed URL into <code>FORM_EMBED_URL</code>.
+            When ready, edit <code>src/app/add-spot/page.tsx</code> and set <code>FORM_EMBED_URL</code>.
           </p>
         </div>
       )}
