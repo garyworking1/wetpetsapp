@@ -1,40 +1,43 @@
 import "./globals.css";
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
 export const metadata = {
-  title: "WetPets",
-  description: "Dog-friendly swimming spots in Austin",
+  title: "WetPets — Dog-Friendly Swimming Spots in Austin",
+  description:
+    "Find creeks, lakes, splash pads, and safe access points for dogs in Austin. Built by dog people. Splash tested in ATX.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-neutral-50 text-neutral-900">
-        <header className="border-b bg-white">
-          <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+      <body className="bg-white text-neutral-900">
+        <header className="sticky top-0 z-40 border-b border-neutral-200/70 bg-white/90 backdrop-blur">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
             <Link href="/" className="flex items-center gap-2">
-              <img src="/logo.svg" alt="WetPets logo" className="h-8 w-8" />
-              <span className="text-lg font-semibold">WetPets</span>
+              <Image src="/logo.jpg" alt="WetPets logo" width={28} height={28} className="rounded-md" priority />
+              <span className="font-semibold">WetPets</span>
             </Link>
-            <div className="flex items-center gap-5">
-              <Link href="/spots" className="text-sm font-medium">
+
+            <nav className="hidden gap-6 text-sm md:flex">
+              <Link href="/spots" className="underline-offset-4 hover:underline">
                 Spots
               </Link>
-              <a href="#how-it-works" className="text-sm font-medium">
+              <Link href="/#how" className="underline-offset-4 hover:underline">
                 How it works
-              </a>
-              <a
-                href="#"
-                className="rounded-full bg-neutral-900 px-4 py-2 text-sm font-medium text-white"
-                aria-disabled="true"
-                title="Add-a-Spot form coming soon"
-              >
-                + Add a Spot
-              </a>
-            </div>
-          </nav>
+              </Link>
+            </nav>
+
+            <Link
+              href="/add-spot"
+              className="rounded-full bg-black px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800"
+            >
+              + Add a Spot
+            </Link>
+          </div>
         </header>
+
         {children}
       </body>
     </html>
