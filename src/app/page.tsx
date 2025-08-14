@@ -43,8 +43,8 @@ export default function Home() {
         {/* Hero image — prefers cleaned file; still looks good if it's the original */}
         <div className="overflow-hidden rounded-xl border border-neutral-200">
           <Image
-            src="/photos/hero-misty-edited.png"
-            alt="A dog enjoying the water in Austin"
+            src="/photos/ladybird-misty-skyline.jpg"
+            alt="Misty the dog in front of the Austin skyline."
             width={1600}
             height={1200}
             priority
