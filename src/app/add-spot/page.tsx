@@ -7,7 +7,7 @@ export const metadata = {
 
 // Paste your Google Form *embed* URL here when you have it, e.g.:
 // "https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true"
-const FORM_EMBED_URL = "";
+const FORM_EMBED_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeRs4TiUA5fxCvaYLBSRml-rQjVxfZCh7jn6HMeepsj0Fx78w/viewform?embedded=true";
 
 export default function AddSpotPage() {
   const hasEmbed = FORM_EMBED_URL.length > 0;
@@ -21,7 +21,7 @@ export default function AddSpotPage() {
 
       {hasEmbed ? (
         <div className="overflow-hidden rounded-xl border border-neutral-200">
-          <iframe src={FORM_EMBED_URL} className="h-[1400px] w-full" loading="lazy" />
+          <iframe src={FORM_EMBED_URL} className="h-[1600px] w-full" loading="lazy" />
         </div>
       ) : (
         <div className="space-y-4 rounded-xl border border-dashed border-neutral-300 p-6">

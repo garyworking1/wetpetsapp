@@ -43,8 +43,8 @@ export default function Home() {
         {/* Hero image — prefers cleaned file; still looks good if it's the original */}
         <div className="overflow-hidden rounded-xl border border-neutral-200">
           <Image
-            src="/photos/ladybird-misty-solo.jpg"
-            alt="Misty with the Austin skyline from Lady Bird Lake"
+            src="/photos/ladybird-misty-skyline.jpg"
+            alt="Misty the dog in front of the Austin skyline."
             width={1600}
             height={1200}
             priority
@@ -70,7 +70,7 @@ export default function Home() {
                   alt={s.alt}
                   width={1200}
                   height={900}
-                  className="h-full w-full object-cover"
+                  className={`h-full w-full object-cover ${s.objectPosition || ""}`}
                 />
               </div>
 

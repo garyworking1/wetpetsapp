@@ -1,0 +1,70 @@
+Backlog for AI Agent
+
+    id: add-spot-form-embed
+    title: Hook up real Google Form on /add-spot
+    acceptance:
+
+        FORM_EMBED_URL in src/app/add-spot/page.tsx is non-empty
+
+        Visiting /add-spot shows the embedded form fully (no cutoff)
+
+        Submit test appears under Responses in Google Forms
+        steps:
+
+        Ask owner for the Google Forms embed URL (ends with viewform?embedded=true)
+
+        Replace FORM_EMBED_URL
+
+        If cut off, bump iframe height to h-[1600px] or h-[2000px]
+
+        Commit: "Hook up real Google Form on /add-spot"
+
+    id: fix-header-logo
+    title: Ensure header logo renders crisply
+    acceptance:
+
+        /logo.jpg exists in /public
+
+        layout.tsx uses <Image src="/logo.jpg" width=28 height=28 />
+        steps:
+
+        If missing, copy provided source to /public/logo.jpg
+
+        Commit: "Ensure header logo renders via next/image"
+
+    id: brushy-chisholm-accuracy
+    title: Verify Brushy vs Chisholm photos and captions
+    acceptance:
+
+        Brushy shows Hutto shallow creek (file: brushycreek-gracy-misty.jpg)
+
+        Chisholm shows Round Rock (water around the rock)
+        steps:
+
+        Confirm in src/app/spots/data.ts (image, alt, caption)
+
+        Commit: "Confirm Brushy/Chisholm photo mapping"
+
+    id: spot-details-polish
+    title: Polish /spots/[slug] layout (breadcrumbs, bigger photo, map button)
+    acceptance:
+
+        Each detail page shows hero photo, city, caption, Directions button
+
+        Lighthouse ≥ 90 (mobile)
+        steps:
+
+        Tidy page.tsx under spots/[slug]; keep types compatible with Next 15
+
+        Commit: "Polish spot detail template"
+
+    id: plausible-verify
+    title: Verify Plausible tracking firing
+    acceptance:
+
+        Pageviews show on plausible.io for wetpets.app
+        steps:
+
+        Visit home & add-spot in incognito, wait ~1–2 min
+
+        Commit (docs update only): "Docs: Plausible verification notes"
