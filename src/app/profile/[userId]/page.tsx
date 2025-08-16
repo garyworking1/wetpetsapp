@@ -18,8 +18,15 @@ const dummyPosts = [
 ];
 // --- END DUMMY DATA ---
 
-export default function ProfilePage({ params }: { params: { userId: string } }) {
+type Params = { userId: string };
+
+export default async function ProfilePage({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
   // In the future, we will use params.userId to fetch user data from the database.
+  const { userId } = await params;
   const { name, image, pets } = dummyUser;
 
   return (
