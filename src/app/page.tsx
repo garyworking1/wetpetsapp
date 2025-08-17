@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { spots } from "./spots/data";
+import PetListDynamic from "@/components/PetListDynamic";
 
 export const metadata = {
   title: "WetPets — Dog-Friendly Swimming Spots in Austin",
@@ -99,6 +100,11 @@ export default function Home() {
             </article>
           ))}
         </div>
+      </section>
+
+      {/* Pet Data from Firestore */}
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <PetListDynamic />
       </section>
 
       {/* Footer */}
