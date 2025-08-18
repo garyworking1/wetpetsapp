@@ -41,9 +41,14 @@ export default async function ProfilePage({
             className="rounded-full object-cover"
           />
         </div>
-        <div>
-          <h1 className="text-2xl font-bold md:text-3xl">{name}</h1>
-          <p className="text-neutral-500">Austin, TX</p>
+        <div className="flex-grow">
+          <div className="flex items-center gap-4">
+            <h1 className="text-2xl font-bold md:text-3xl">{name}</h1>
+            <button className="rounded-lg bg-blue-600 px-4 py-1 text-sm font-medium text-white hover:bg-blue-500">
+              Follow
+            </button>
+          </div>
+          <p className="mt-1 text-neutral-500">Austin, TX</p>
           {/* In the future, we could show a follower count or other stats here */}
         </div>
       </header>
