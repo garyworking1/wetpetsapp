@@ -43,6 +43,8 @@ export const FirebaseProvider = ({ children }: { children: React.ReactNode }) =>
         appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
       };
 
+      console.log("Attempting to initialize Firebase with config:", firebaseConfig);
+
       // Initialize Firebase, but only once per app instance
       let app: FirebaseApp;
       if (!getApps().length) {
@@ -62,6 +64,8 @@ export const FirebaseProvider = ({ children }: { children: React.ReactNode }) =>
         storage,
         isReady: true,
       });
+
+      console.log("Firebase initialized successfully.");
 
     } catch (error) {
       console.error("Firebase initialization failed:", error);
