@@ -11,10 +11,14 @@ export default function LoginButton() {
   const { auth, db, isReady } = useFirebase();
   const [user, setUser] = useState<User | null>(null);
 
+  console.log("LoginButton rendered. Firebase Ready:", isReady, "Auth Ready:", !!auth);
+
   useEffect(() => {
     if (isReady && auth) {
+      console.log("Setting up onAuthStateChanged listener.");
       // This listener will update the user state when auth state changes
       const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        console.log("Auth state changed. User:", currentUser ? currentUser.displayName : null);
         setUser(currentUser);
       });
       // Cleanup subscription on unmount
@@ -23,9 +27,15 @@ export default function LoginButton() {
   }, [isReady, auth]);
 
   const handleSignIn = async () => {
-    if (!auth || !db) return;
+    console.log("handleSignIn called.");
+    if (!auth || !db) {
+      console.error("Auth or DB service not ready.");
+      return;
+    }
     try {
+      console.log("Initiating signInWithPopup...");
       const result = await signInWithPopup(auth, provider);
+      console.log("Sign-in successful. Result:", result);
       const user = result.user;
 
       // Save user to Firestore
