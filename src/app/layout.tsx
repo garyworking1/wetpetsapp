@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import type { ReactNode } from "react";
-import LoginButton from "@/components/LoginButton";
+import LoginButtonDynamic from "@/components/LoginButtonDynamic";
 import { FirebaseProvider } from "@/components/FirebaseProvider";
 
 export const metadata = {
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 >
                   + Add a Spot
                 </Link>
-                <LoginButton />
+                <LoginButtonDynamic />
               </div>
             </div>
           </header>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut, User } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import { useFirebase } from "./FirebaseProvider";
+import { useFirebase } from "@/hooks/useFirebase";
 
 const provider = new GoogleAuthProvider();
 
@@ -11,34 +11,24 @@ export default function LoginButton() {
   const { auth, db, isReady } = useFirebase();
   const [user, setUser] = useState<User | null>(null);
 
-  console.log("LoginButton rendered. Firebase Ready:", isReady, "Auth Ready:", !!auth);
-
   useEffect(() => {
     if (isReady && auth) {
-      console.log("Setting up onAuthStateChanged listener.");
-      // This listener will update the user state when auth state changes
       const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-        console.log("Auth state changed. User:", currentUser ? currentUser.displayName : null);
         setUser(currentUser);
       });
-      // Cleanup subscription on unmount
       return () => unsubscribe();
     }
   }, [isReady, auth]);
 
   const handleSignIn = async () => {
-    console.log("handleSignIn called.");
     if (!auth || !db) {
       console.error("Auth or DB service not ready.");
       return;
     }
     try {
-      console.log("Initiating signInWithPopup...");
       const result = await signInWithPopup(auth, provider);
-      console.log("Sign-in successful. Result:", result);
       const user = result.user;
 
-      // Save user to Firestore
       if (user) {
         const userRef = doc(db, "users", user.uid);
         await setDoc(userRef, {
@@ -46,7 +36,7 @@ export default function LoginButton() {
           email: user.email,
           displayName: user.displayName,
           photoURL: user.photoURL,
-        }, { merge: true }); // Use merge to avoid overwriting existing data
+        }, { merge: true });
       }
     } catch (error) {
       console.error("Error during sign-in:", error);

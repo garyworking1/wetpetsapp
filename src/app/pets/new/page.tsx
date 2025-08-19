@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { collection, addDoc } from "firebase/firestore";
 import Link from "next/link";
-import { useFirebase } from "@/components/FirebaseProvider";
+import { useFirebase } from "@/hooks/useFirebase";
 
 export default function NewPetPage() {
   const { auth, db, isReady } = useFirebase();

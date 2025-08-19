@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { collection, getDocs, QueryDocumentSnapshot, DocumentData } from "firebase/firestore";
-import { useFirebase } from "./FirebaseProvider";
+import { useFirebase } from "@/hooks/useFirebase";
 
 interface Pet {
   id: string;
