@@ -1,10 +1,11 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { initializeApp, getApps, getApp, FirebaseApp } from 'firebase/app';
-import { getFirestore, Firestore } from 'firebase/firestore';
-import { getAuth, Auth } from 'firebase/auth';
-import { getStorage, FirebaseStorage } from 'firebase/storage';
+import React, { useEffect, useState } from 'react';
+import { initializeApp, getApps, getApp, type FirebaseApp } from 'firebase/app';
+import { getFirestore, type Firestore } from 'firebase/firestore';
+import { getAuth, type Auth } from 'firebase/auth';
+import { getStorage, type FirebaseStorage } from 'firebase/storage';
+import { FirebaseContext } from '@/hooks/useFirebase';
 
 interface FirebaseServices {
   auth: Auth | null;
@@ -13,15 +14,6 @@ interface FirebaseServices {
   isReady: boolean;
 }
 
-// Step 1: Create a context for our Firebase services
-const FirebaseContext = createContext<FirebaseServices>({
-  auth: null,
-  db: null,
-  storage: null,
-  isReady: false,
-});
-
-// Step 2: Create the Firebase provider component
 export const FirebaseProvider = ({ children }: { children: React.ReactNode }) => {
   const [firebaseServices, setFirebaseServices] = useState<FirebaseServices>({
     auth: null,
@@ -31,9 +23,7 @@ export const FirebaseProvider = ({ children }: { children: React.ReactNode }) =>
   });
 
   useEffect(() => {
-    // This hook runs only on the client, so we can safely initialize Firebase here.
     try {
-      // Your web app's Firebase configuration from .env.local
       const firebaseConfig = {
         apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
         authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -43,9 +33,6 @@ export const FirebaseProvider = ({ children }: { children: React.ReactNode }) =>
         appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
       };
 
-      console.log("Attempting to initialize Firebase with config:", firebaseConfig);
-
-      // Initialize Firebase, but only once per app instance
       let app: FirebaseApp;
       if (!getApps().length) {
         app = initializeApp(firebaseConfig);
@@ -53,7 +40,6 @@ export const FirebaseProvider = ({ children }: { children: React.ReactNode }) =>
         app = getApp();
       }
 
-      // Get the services and update the state
       const auth = getAuth(app);
       const db = getFirestore(app);
       const storage = getStorage(app);
@@ -65,28 +51,15 @@ export const FirebaseProvider = ({ children }: { children: React.ReactNode }) =>
         isReady: true,
       });
 
-      console.log("Firebase initialized successfully.");
-
     } catch (error) {
       console.error("Firebase initialization failed:", error);
-      // You can handle this error gracefully in your UI
       setFirebaseServices(prev => ({ ...prev, isReady: false }));
     }
-  }, []); // Empty dependency array means this runs once on mount
+  }, []);
 
-  // Step 3: Provide the services to the children
   return (
     <FirebaseContext.Provider value={firebaseServices}>
       {children}
     </FirebaseContext.Provider>
   );
-};
-
-// Step 4: Create a custom hook to easily access the services
-export const useFirebase = () => {
-  const context = useContext(FirebaseContext);
-  if (context === undefined) {
-    throw new Error('useFirebase must be used within a FirebaseProvider');
-  }
-  return context;
 };

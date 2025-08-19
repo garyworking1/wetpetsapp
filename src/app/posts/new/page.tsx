@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useFirebase } from "@/components/FirebaseProvider";
+import { useFirebase } from "@/hooks/useFirebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
