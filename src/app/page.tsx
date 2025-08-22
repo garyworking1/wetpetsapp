@@ -113,7 +113,10 @@ export default function Home() {
           Photos are representative. Always check posted signs and current
           conditions.
         </p>
-        <p>© {new Date().getFullYear()} WetPets. All splash rights reserved.</p>
+        <div className="flex items-center gap-4">
+          <p>© {new Date().getFullYear()} WetPets. All splash rights reserved.</p>
+          <Link href="/safety-tips" className="underline-offset-4 hover:underline">Safety Tips</Link>
+        </div>
       </footer>
     </main>
   );

@@ -70,6 +70,18 @@ export default function SpotsPage() {
           Share it with the community.
         </Link>
       </p>
+
+      {/* Footer */}
+      <footer className="mx-auto mt-10 max-w-6xl border-t border-neutral-200 pt-6 text-sm text-neutral-600">
+        <p className="mb-1">
+          Photos are representative. Always check posted signs and current
+          conditions.
+        </p>
+        <div className="flex items-center gap-4">
+          <p>© {new Date().getFullYear()} WetPets. All splash rights reserved.</p>
+          <Link href="/safety-tips" className="underline-offset-4 hover:underline">Safety Tips</Link>
+        </div>
+      </footer>
     </main>
   );
 }
